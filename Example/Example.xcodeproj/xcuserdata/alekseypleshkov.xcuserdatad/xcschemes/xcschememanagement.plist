@@ -9,20 +9,10 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>UISliderView.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>9AAD0F7623DD7D6D004D05A2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9AAD0F7F23DD7D6D004D05A2</key>
+		<key>9A53730C23DD9F9500B9FDD1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

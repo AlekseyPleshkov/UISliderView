@@ -10,6 +10,10 @@
 		9AAD0F8123DD7D6D004D05A2 /* UISliderView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAD0F7723DD7D6D004D05A2 /* UISliderView.framework */; };
 		9AAD0F8623DD7D6D004D05A2 /* UISliderViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD0F8523DD7D6D004D05A2 /* UISliderViewTests.swift */; };
 		9AAD0F8823DD7D6D004D05A2 /* UISliderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AAD0F7A23DD7D6D004D05A2 /* UISliderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AAD0FAD23DD7DB1004D05A2 /* UISliderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD0FA923DD7DB1004D05A2 /* UISliderCollectionViewCell.swift */; };
+		9AAD0FAE23DD7DB1004D05A2 /* UIFullScreenSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD0FAA23DD7DB1004D05A2 /* UIFullScreenSliderViewController.swift */; };
+		9AAD0FAF23DD7DB1004D05A2 /* UISliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD0FAB23DD7DB1004D05A2 /* UISliderView.swift */; };
+		9AAD0FB023DD7DB1004D05A2 /* UIFullScreenSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD0FAC23DD7DB1004D05A2 /* UIFullScreenSliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		9AAD0F8023DD7D6D004D05A2 /* UISliderViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UISliderViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AAD0F8523DD7D6D004D05A2 /* UISliderViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISliderViewTests.swift; sourceTree = "<group>"; };
 		9AAD0F8723DD7D6D004D05A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AAD0FA923DD7DB1004D05A2 /* UISliderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISliderCollectionViewCell.swift; sourceTree = "<group>"; };
+		9AAD0FAA23DD7DB1004D05A2 /* UIFullScreenSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFullScreenSliderViewController.swift; sourceTree = "<group>"; };
+		9AAD0FAB23DD7DB1004D05A2 /* UISliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISliderView.swift; sourceTree = "<group>"; };
+		9AAD0FAC23DD7DB1004D05A2 /* UIFullScreenSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFullScreenSliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +58,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A2D4EF723E185ED00E659CA /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9AAD0FAC23DD7DB1004D05A2 /* UIFullScreenSliderView.swift */,
+				9AAD0FAA23DD7DB1004D05A2 /* UIFullScreenSliderViewController.swift */,
+				9AAD0FA923DD7DB1004D05A2 /* UISliderCollectionViewCell.swift */,
+				9AAD0FAB23DD7DB1004D05A2 /* UISliderView.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		9AAD0F6D23DD7D6D004D05A2 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +92,7 @@
 			children = (
 				9AAD0F7A23DD7D6D004D05A2 /* UISliderView.h */,
 				9AAD0F7B23DD7D6D004D05A2 /* Info.plist */,
+				9A2D4EF723E185ED00E659CA /* Source */,
 			);
 			path = UISliderView;
 			sourceTree = "<group>";
@@ -148,6 +168,7 @@
 				TargetAttributes = {
 					9AAD0F7623DD7D6D004D05A2 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 					9AAD0F7F23DD7D6D004D05A2 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -195,6 +216,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AAD0FAF23DD7DB1004D05A2 /* UISliderView.swift in Sources */,
+				9AAD0FAE23DD7DB1004D05A2 /* UIFullScreenSliderViewController.swift in Sources */,
+				9AAD0FB023DD7DB1004D05A2 /* UIFullScreenSliderView.swift in Sources */,
+				9AAD0FAD23DD7DB1004D05A2 /* UISliderCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +365,7 @@
 		9AAD0F8C23DD7D6D004D05A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -347,6 +373,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = UISliderView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -355,6 +382,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alekseypleshkov.UISliderView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -363,6 +392,7 @@
 		9AAD0F8D23DD7D6D004D05A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -370,6 +400,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = UISliderView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,6 +409,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alekseypleshkov.UISliderView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -386,6 +418,7 @@
 		9AAD0F8F23DD7D6D004D05A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = UISliderViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -403,6 +436,7 @@
 		9AAD0F9023DD7D6D004D05A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = UISliderViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
