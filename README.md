@@ -2,7 +2,7 @@
 
 Easy and customizable Swift image slider with lazy loading images and full screen viewer
 
-<img src="https://github.com/AlekseyPleshkov/UISliderView/blob/master/preview.gif?raw=true"/></a>
+<img src="https://github.com/AlekseyPleshkov/UISliderView/blob/master/preview.gif?raw=true" width="320" height="571"/></a>
 
 ## 🛠 Installation
 
