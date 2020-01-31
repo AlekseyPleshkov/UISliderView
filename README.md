@@ -65,65 +65,26 @@ sliderView.reloadData()
 It's done!
 
 ### Available configurations
+- `delegate: UISliderViewDelegate?`. The object that acts as the delegate of the slider view. Notifies at main events.
+- `viewController: UIViewController?`. View controller for show full screen slider. Set this parameter to open slider in full screen.
+- `images: [URL]`. List of image urls for loading and showing in sliders.
+- `imageContentMode: UIView.ContentMode = .scaleAspectFill`. Image content mode for slide.
+- `activityIndicatorColor: UIColor = .black`. Activity indicator color (while the image is loading).
+- `activityIndicatorStyle: UIActivityIndicatorView.Style?`. /// Activity indicator style (while the image is loading).
+- `pageIndicatorColor: UIColor?`. Page indicator color.
+- `pageCurrentIndicatorColor: UIColor?`. Current page indicator color.
+- `fullScreenImageContentMode: UIView.ContentMode = .scaleAspectFill`. Image content mode for full screen slide.
+- `fullScreenActivityIndicatorColor: UIColor = .white`. Activity indicator color (while the image is loading) for full screen slide.
+- `fullScreenActivityIndicatorStyle: UIActivityIndicatorView.Style?`. /// Activity indicator style (while the image is loading) for full screen slide.
+- `fullScreenBackButtonImage: UIImage?`. Image for back button in full screen mode. Automatically hidden button if image not set.
+- `isShowPageControl: Bool = true`. Shows pageControl indicator.
 
-#### Parameters:
-```swift
-/// UISliderView
-
-/// The object that acts as the delegate of the slider view.
-/// Notifies at main events
-delegate: UISliderViewDelegate?
-
-/// View controller for show full screen slider
-/// Set this parameter to open slider in full screen
-viewController: UIViewController?
-
-/// List of image urls for loading and showing in sliders
-images: [URL]
-
-// Image content mode for slide
-imageContentMode: UIView.ContentMode = .scaleAspectFill
-/// Activity indicator color (while the image is loading)
-activityIndicatorColor: UIColor = .black
-/// Activity indicator style (while the image is loading)
-activityIndicatorStyle: UIActivityIndicatorView.Style?
-/// Page indicator color
-pageIndicatorColor: UIColor?
-/// Current page indicator color
-pageCurrentIndicatorColor: UIColor?
-
-/// Image content mode for full screen slide
-fullScreenImageContentMode: UIView.ContentMode = .scaleAspectFill
-///  Activity indicator color (while the image is loading) for full screen slide
-fullScreenActivityIndicatorColor: UIColor = .white
-/// Activity indicator style (while the image is loading) for full screen slide
-fullScreenActivityIndicatorStyle: UIActivityIndicatorView.Style?
-/// Image for back button in full screen mode
-/// Automatically hidden button if image not set
-fullScreenBackButtonImage: UIImage?
-
-/// Shows pageControl indicator
-isShowPageControl: Bool = true
-```
-
-#### Methods:
-```swift
-/// Reloads slides by list of url images
-/// Call this method after set list of urls to image parameter
-reloadData()
-```
+### Methods:
+- `reloadData()`. Reloads slides by list of url images. Call this method after set list of urls to image parameter.
 
 ### Delegate
-
-```swift
-/// UISliderViewDelegate
-
-/// Tells the delegate that the slide did change
-sliderView(_ sliderView: UISliderView, didChangeSlideAt index: Int)
-
-/// Tells the delegate that the full screen view did change visible state
-sliderView(_ sliderView: UISliderView, didChangeFullScreenVisible isVisible: Bool)
-```
+- `sliderView(_ sliderView: UISliderView, didChangeSlideAt index: Int)`. Tells the delegate that the slide did change.
+- `sliderView(_ sliderView: UISliderView, didChangeFullScreenVisible isVisible: Bool)`. Tells the delegate that the full screen view did change visible state.
 
 ## 🚧 Requirements
 
