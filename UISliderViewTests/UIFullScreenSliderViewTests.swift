@@ -1,39 +1,42 @@
 //
-//  UISliderViewTests.swift
+//  UIFullScreenSliderViewTests.swift
 //  UISliderViewTests
 //
-//  Created by Aleksey Pleshkov on 26.01.2020.
+//  Created by Aleksey Pleshkov on 03.02.2020.
 //  Copyright © 2020 Aleksey Pleshkov. All rights reserved.
 //
 
 import XCTest
 @testable import UISliderView
 
-final class UISliderViewTests: XCTestCase {
+final class UIFullScreenSliderViewTests: XCTestCase {
   
   // MARK: - Private Properties
   
-  private var sut: UISliderView!
+  private var sut: UIFullScreenSliderView!
+  private var viewController: UIViewController!
   
   // MARK: - Lifecycle
   
   override func setUp() {
     super.setUp()
-        
-    sut = UISliderView()
+    
+    viewController = UIViewController()
+    sut = UIFullScreenSliderView(viewController: viewController, backButtonImage: nil)
   }
   
   override func tearDown() {
+    viewController = nil
     sut = nil
     
     super.tearDown()
   }
   
-  // MARK: - Init slide view
+  // MARK: - Init full screen mode slide view
   
   func testInitSliderView() {
     // Given
-    let collectionViewLayout = UICollectionViewLayout()
+    let collectionViewLayout = sut.sliderView.collectionView.collectionViewLayout
     let collectionViewSpy = UICollectionViewSpy(frame: .zero, collectionViewLayout: collectionViewLayout)
     let images = [
       URL(string: "https://source.unsplash.com/1024x1024")!,
@@ -43,15 +46,21 @@ final class UISliderViewTests: XCTestCase {
     ]
     
     // When
-    sut.collectionView = collectionViewSpy
-    sut.collectionView.dataSource = sut
+    sut.sliderView.collectionView = collectionViewSpy
+    sut.sliderView.collectionView.dataSource = sut.sliderView
+    
     sut.images = images
     sut.reloadData()
     
     // Then
     XCTAssert(collectionViewSpy.isCalledReloadData)
-    XCTAssertEqual(sut.collectionView.numberOfItems(inSection: 0), images.count)
+    XCTAssertEqual(sut.sliderView.collectionView.numberOfItems(inSection: 0), images.count)
+    
+    XCTAssertEqual(sut.images.count, images.count)
+    XCTAssertEqual(sut.sliderView.images.count, images.count)
+    
     XCTAssertEqual(sut.pageControl.numberOfPages, images.count)
     XCTAssertFalse(sut.pageControl.isHidden)
+    XCTAssertTrue(sut.sliderView.pageControl.isHidden)
   }
 }

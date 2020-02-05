@@ -73,11 +73,9 @@ open class UISliderView: UIView {
     return collectionView.cellForItem(at: indexPath) as? UISliderCollectionViewCell
   }
   
-  // MARK: - Private Properties
-  
-  private var collectionViewLayout: UICollectionViewFlowLayout!
-  private var collectionView: UICollectionView!
-  private var pageControl: UIPageControl!
+  var collectionViewLayout: UICollectionViewFlowLayout!
+  var collectionView: UICollectionView!
+  var pageControl: UIPageControl!
   
   // MARK: - Init
   
@@ -114,11 +112,11 @@ open class UISliderView: UIView {
     pageControl.currentPageIndicatorTintColor = pageCurrentIndicatorColor
     
     collectionView.reloadData()
-    collectionView.performBatchUpdates(nil) { [unowned self] _ in
-      self.collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+    collectionView.performBatchUpdates(nil) { [weak self] _ in
+      self?.collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
       
       DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-        self.updateImage()
+        self?.updateImage()
       }
     }
   }

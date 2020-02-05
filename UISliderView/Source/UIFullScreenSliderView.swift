@@ -26,17 +26,16 @@ final class UIFullScreenSliderView: UIView {
   var activityIndicatorColor = UIColor.white
   var activityIndicatorStyle: UIActivityIndicatorView.Style?
   
+  var pageControl: UIPageControl!
+  var sliderView: UISliderView!
+  var backButton: UIButton!
+  
   // MARK: - Private Properties
   
   private unowned let viewController: UIViewController
   private let backButtonImage: UIImage?
   
-  private var pageControl: UIPageControl!
-  private var sliderView: UISliderView!
-  private var backButton: UIButton!
-  
   private let maxOffsetToHide: CGFloat = 100
-  
   private var activeScale: CGFloat = 1
   private let minScale: CGFloat = 1
   private let maxScale: CGFloat = 3
@@ -79,8 +78,8 @@ final class UIFullScreenSliderView: UIView {
     configureGestures()
     
     // Dirty hack
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [unowned self] in
-      self.show()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+      self?.show()
     }
   }
   

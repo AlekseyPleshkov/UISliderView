@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A49110423E5F78800ACD4A3 /* UICollectionViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A49110323E5F78800ACD4A3 /* UICollectionViewSpy.swift */; };
+		9A85C4AA23E8085400B60385 /* UIFullScreenSliderViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85C4A923E8085400B60385 /* UIFullScreenSliderViewTests.swift */; };
 		9AAD0F8123DD7D6D004D05A2 /* UISliderView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAD0F7723DD7D6D004D05A2 /* UISliderView.framework */; };
 		9AAD0F8623DD7D6D004D05A2 /* UISliderViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD0F8523DD7D6D004D05A2 /* UISliderViewTests.swift */; };
 		9AAD0F8823DD7D6D004D05A2 /* UISliderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AAD0F7A23DD7D6D004D05A2 /* UISliderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A49110323E5F78800ACD4A3 /* UICollectionViewSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewSpy.swift; sourceTree = "<group>"; };
+		9A85C4A923E8085400B60385 /* UIFullScreenSliderViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFullScreenSliderViewTests.swift; sourceTree = "<group>"; };
 		9AAD0F7723DD7D6D004D05A2 /* UISliderView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UISliderView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AAD0F7A23DD7D6D004D05A2 /* UISliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UISliderView.h; sourceTree = "<group>"; };
 		9AAD0F7B23DD7D6D004D05A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,6 +73,14 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+		9A49110223E5F76F00ACD4A3 /* TestDoubles */ = {
+			isa = PBXGroup;
+			children = (
+				9A49110323E5F78800ACD4A3 /* UICollectionViewSpy.swift */,
+			);
+			path = TestDoubles;
+			sourceTree = "<group>";
+		};
 		9AAD0F6D23DD7D6D004D05A2 = {
 			isa = PBXGroup;
 			children = (
@@ -100,8 +112,10 @@
 		9AAD0F8423DD7D6D004D05A2 /* UISliderViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				9AAD0F8523DD7D6D004D05A2 /* UISliderViewTests.swift */,
 				9AAD0F8723DD7D6D004D05A2 /* Info.plist */,
+				9A85C4A923E8085400B60385 /* UIFullScreenSliderViewTests.swift */,
+				9AAD0F8523DD7D6D004D05A2 /* UISliderViewTests.swift */,
+				9A49110223E5F76F00ACD4A3 /* TestDoubles */,
 			);
 			path = UISliderViewTests;
 			sourceTree = "<group>";
@@ -227,7 +241,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A85C4AA23E8085400B60385 /* UIFullScreenSliderViewTests.swift in Sources */,
 				9AAD0F8623DD7D6D004D05A2 /* UISliderViewTests.swift in Sources */,
+				9A49110423E5F78800ACD4A3 /* UICollectionViewSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
