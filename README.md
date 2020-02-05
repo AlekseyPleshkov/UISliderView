@@ -79,7 +79,7 @@ It's done!
 - `fullScreenBackButtonImage: UIImage?`. Image for back button in full screen mode. Automatically hidden button if image not set.
 - `isShowPageControl: Bool = true`. Shows pageControl indicator.
 
-### Methods:
+### Methods
 - `reloadData()`. Reloads slides by list of url images. Call this method after set list of urls to image parameter.
 
 ### Delegate
