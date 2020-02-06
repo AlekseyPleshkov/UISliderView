@@ -1,7 +1,7 @@
 # coding: utf-8
 Pod::Spec.new do |s|
     s.name = "UISliderView"
-    s.version = "0.0.1"
+    s.version = "0.0.2"
     s.summary = "Easy and customizable Swift image slider with lazy loading images and full screen viewer"
     s.authors = { 'Aleksey Pleshkov' => 'im@alekseypleshkov.ru' }
     s.homepage = "https://github.com/AlekseyPleshkov/UISliderView"
