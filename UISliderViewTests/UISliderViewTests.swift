@@ -54,4 +54,18 @@ final class UISliderViewTests: XCTestCase {
     XCTAssertEqual(sut.pageControl.numberOfPages, images.count)
     XCTAssertFalse(sut.pageControl.isHidden)
   }
+  
+  func testHidePageControl() {
+    // Given
+    let images = [
+      URL(string: "https://source.unsplash.com/1024x1024")!
+    ]
+    
+    // When
+    sut.images = images
+    sut.reloadData()
+    
+    // Then
+    XCTAssertTrue(sut.pageControl.isHidden)
+  }
 }
