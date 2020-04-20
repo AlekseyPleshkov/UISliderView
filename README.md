@@ -22,7 +22,7 @@ platform :ios, '11.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-pod 'UISliderView', '~> 0.0.2'
+pod 'UISliderView', '~> 1.0.0'
 end
 ```
 
