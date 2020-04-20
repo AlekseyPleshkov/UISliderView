@@ -103,7 +103,7 @@ open class UISliderView: UIView {
   /// ```
   open func reloadData() {
     let indexPath = IndexPath(item: self.indexActiveSlide, section: 0)
-    let isShowPageControl = self.isShowPageControl ? images.count > 0 : false
+    let isShowPageControl = self.isShowPageControl ? images.count > 1 : false
     
     pageControl.isHidden = !isShowPageControl
     pageControl.numberOfPages = images.count
