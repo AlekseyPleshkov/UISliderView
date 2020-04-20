@@ -62,17 +62,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9A2D4EF723E185ED00E659CA /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				9AAD0FAC23DD7DB1004D05A2 /* UIFullScreenSliderView.swift */,
-				9AAD0FAA23DD7DB1004D05A2 /* UIFullScreenSliderViewController.swift */,
-				9AAD0FA923DD7DB1004D05A2 /* UISliderCollectionViewCell.swift */,
-				9AAD0FAB23DD7DB1004D05A2 /* UISliderView.swift */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
 		9A49110223E5F76F00ACD4A3 /* TestDoubles */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,7 +93,10 @@
 			children = (
 				9AAD0F7A23DD7D6D004D05A2 /* UISliderView.h */,
 				9AAD0F7B23DD7D6D004D05A2 /* Info.plist */,
-				9A2D4EF723E185ED00E659CA /* Source */,
+				9AAD0FAC23DD7DB1004D05A2 /* UIFullScreenSliderView.swift */,
+				9AAD0FAA23DD7DB1004D05A2 /* UIFullScreenSliderViewController.swift */,
+				9AAD0FA923DD7DB1004D05A2 /* UISliderCollectionViewCell.swift */,
+				9AAD0FAB23DD7DB1004D05A2 /* UISliderView.swift */,
 			);
 			path = UISliderView;
 			sourceTree = "<group>";
