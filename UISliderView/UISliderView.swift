@@ -79,7 +79,7 @@ open class UISliderView: UIView {
   
   // MARK: - Init
   
-  init() {
+  public init() {
     super.init(frame: .zero)
     configure()
   }
