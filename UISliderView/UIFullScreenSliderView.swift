@@ -274,14 +274,15 @@ extension UIFullScreenSliderView {
 
     let velocityX = gesture.velocity(in: self).x * 0.04
     let velocityY = gesture.velocity(in: self).y * 0.04
+    let imageSize = activeCell.imageView.contentClippingRect
     
-    let minOffsetX = activeCell.frame.width - activeCell.imageView.frame.width / 2
-    let maxOffsetX = activeCell.imageView.frame.width / 2
+    let minOffsetX = activeCell.frame.width - imageSize.width / 2
+    let maxOffsetX = imageSize.width / 2
     
     let topOffsetToSlider = (frame.height - sliderView.frame.height) / 2
     let initialOffsetY = activeCell.frame.height / 2
-    let minOffsetY = topOffsetToSlider + sliderView.frame.height - activeCell.imageView.frame.height / 2
-    let maxOffsetY = activeCell.imageView.frame.height / 2 - topOffsetToSlider
+    let minOffsetY = topOffsetToSlider + sliderView.frame.height - imageSize.height / 2
+    let maxOffsetY = imageSize.height / 2 - topOffsetToSlider
     
     let updatedCenterX: CGFloat = {
       let newValue = activeCell.imageView.center.x + velocityX
@@ -295,7 +296,7 @@ extension UIFullScreenSliderView {
     let updatedCenterY: CGFloat = {
       let newValue = activeCell.imageView.center.y + velocityY
 
-      if activeCell.imageView.frame.height <= frame.height {
+      if imageSize.height <= frame.height {
         return initialOffsetY
       }
       
