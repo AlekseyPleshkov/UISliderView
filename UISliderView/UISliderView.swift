@@ -173,6 +173,10 @@ open class UISliderView: UIView {
   }
   
   private func updateImage() {
+    guard !images.isEmpty else {
+      return
+    }
+    
     let index = indexActiveSlide
     
     let imageURL = images[index]
