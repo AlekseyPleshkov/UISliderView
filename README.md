@@ -32,15 +32,50 @@ Then, run the following terminal command in project directory:
 $ pod install
 ```
 
-Import package in you project
+#### Swift Package Manager
 
+For use [The Swift Package Manager](https://swift.org/package-manager/) you need add `UISliderView` dependency to `Package.swift` file:
+
+```swift
+import PackageDescription
+
+let package = Package(
+  name: "PROJECT_NAME",
+  targets: [],
+  dependencies: [
+      .package(url: "https://github.com/AlekseyPleshkov/UISliderView.git", from: "1.0.3")
+  ]
+)
 ```
-import UISliderView
+
+Then add `UISliderView` to your targets dependencies:
+
+```swift
+.target(
+  name: "TARGET_NAME",
+  dependencies: [
+      "UISliderView",
+  ]
+),
 ```
+
+And run terminal command:
+
+```bash
+swift package update
+```
+
+Or use SPM in XCode 😊
 
 ## 💻 How to use
 
 ### Simple usage
+
+Import package in your file
+
+```
+import UISliderView
+```
 
 Set `UISliderView` class to custom class for empty view or create `UISliderView` class programmably.
 

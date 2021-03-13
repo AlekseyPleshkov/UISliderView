@@ -24,6 +24,7 @@ final class ViewController: UIViewController {
       URL(string: "https://images.unsplash.com/photo-1578739207984-3514f3dfa64c?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80")!,
       URL(string: "https://images.unsplash.com/photo-1578426187131-a427d5f5306b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80")!
     ]
+    sliderView.images = []
     sliderView.delegate = self
     sliderView.viewController = self
     sliderView.fullScreenBackButtonImage = UIImage(named: "backButton")

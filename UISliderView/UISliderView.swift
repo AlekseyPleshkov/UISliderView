@@ -8,14 +8,14 @@
 
 import UIKit
 
-public protocol UISliderViewDelegate: class {
+public protocol UISliderViewDelegate: AnyObject {
   /// Tells the delegate that the slide did change
   func sliderView(_ sliderView: UISliderView, didChangeSlideAt index: Int)
   /// Tells the delegate that the full screen view did change visible state
   func sliderView(_ sliderView: UISliderView, didChangeFullScreenVisible isVisible: Bool)
 }
 
-extension UISliderViewDelegate {
+public extension UISliderViewDelegate {
   func sliderView(_ sliderView: UISliderView, didChangeSlideAt index: Int) {}
   func sliderView(_ sliderView: UISliderView, didChangeFullScreenVisible isVisible: Bool) {}
 }
@@ -138,10 +138,16 @@ open class UISliderView: UIView {
     collectionViewLayout.minimumInteritemSpacing = 0
     collectionViewLayout.minimumLineSpacing = 0
     
-    collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+    collectionView = UICollectionView(
+      frame: .zero,
+      collectionViewLayout: collectionViewLayout
+    )
     collectionView.dataSource = self
     collectionView.delegate = self
-    collectionView.register(UISliderCollectionViewCell.self, forCellWithReuseIdentifier: "SliderCollectionViewCell")
+    collectionView.register(
+      UISliderCollectionViewCell.self,
+      forCellWithReuseIdentifier: "SliderCollectionViewCell"
+    )
     collectionView.backgroundColor = .clear
     collectionView.bounces = false
     collectionView.showsHorizontalScrollIndicator = false
@@ -237,14 +243,17 @@ open class UISliderView: UIView {
 
 extension UISliderView: UICollectionViewDataSource {
   
-  public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  public func collectionView(
+    _ collectionView: UICollectionView,
+    numberOfItemsInSection section: Int
+  ) -> Int {
     return images.count
   }
   
   public func collectionView(
     _ collectionView: UICollectionView,
-    cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    
+    cellForItemAt indexPath: IndexPath
+  ) -> UICollectionViewCell {
     let loadedImage = loadedImages[indexPath.row]
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCollectionViewCell", for: indexPath)
     
@@ -264,7 +273,10 @@ extension UISliderView: UICollectionViewDataSource {
 
 extension UISliderView: UICollectionViewDelegate {
   
-  public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+  public func collectionView(
+    _ collectionView: UICollectionView,
+    didSelectItemAt indexPath: IndexPath
+  ) {
     showFullScreenSlider()
   }
 
@@ -285,7 +297,8 @@ extension UISliderView: UICollectionViewDelegateFlowLayout {
   public func collectionView(
     _ collectionView: UICollectionView,
     layout collectionViewLayout: UICollectionViewLayout,
-    sizeForItemAt indexPath: IndexPath) -> CGSize {
+    sizeForItemAt indexPath: IndexPath
+  ) -> CGSize {
     return collectionView.frame.size
   }
 }
@@ -294,7 +307,10 @@ extension UISliderView: UICollectionViewDelegateFlowLayout {
 
 extension UISliderView: UIFullScreenSliderViewDelegate {
   
-  func fullScreenSliderView(_ fullScreenSliderView: UIFullScreenSliderView, didChangeVisible isVisible: Bool) {
+  func fullScreenSliderView(
+    _ fullScreenSliderView: UIFullScreenSliderView,
+    didChangeVisible isVisible: Bool
+  ) {
     delegate?.sliderView(self, didChangeFullScreenVisible: isVisible)
   }
 }
