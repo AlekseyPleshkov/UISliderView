@@ -8,8 +8,12 @@
 
 import UIKit
 
-protocol UIFullScreenSliderViewDelegate: class {
-  func fullScreenSliderView(_ fullScreenSliderView: UIFullScreenSliderView, didChangeVisible isVisible: Bool)
+protocol UIFullScreenSliderViewDelegate: AnyObject {
+  
+  func fullScreenSliderView(
+    _ fullScreenSliderView: UIFullScreenSliderView,
+    didChangeVisible isVisible: Bool
+  )
 }
 
 final class UIFullScreenSliderView: UIView {
@@ -160,7 +164,10 @@ final class UIFullScreenSliderView: UIView {
       animations: animations)
   }
   
-  private func animateTransformCell(_ updatedTransform: CGAffineTransform, duration: Double = 0.3) {
+  private func animateTransformCell(
+    _ updatedTransform: CGAffineTransform,
+    duration: Double = 0.3
+  ) {
     guard let activeCell = sliderView.activeCell else {
       return
     }
@@ -224,7 +231,6 @@ extension UIFullScreenSliderView {
   }
   
   @objc private func actionPinchGesture(gesture: UIPinchGestureRecognizer) {
-    
     let updatedScale: CGFloat = {
       let scale = activeScale + gesture.velocity * 0.03
       
