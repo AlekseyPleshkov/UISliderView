@@ -23,7 +23,7 @@ final class UIFullScreenSliderView: UIView {
   weak var delegate: UIFullScreenSliderViewDelegate?
   
   var images: [URL] = []
-  var loadedImages: [Int: UIImage] = [:]
+  var loadedImages: [URL: UIImage] = [:]
   var indexActiveSlide = 0
   
   var imageContentMode = UIView.ContentMode.scaleAspectFill

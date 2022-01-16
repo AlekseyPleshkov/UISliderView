@@ -65,7 +65,7 @@ open class UISliderView: UIView {
     
   // MARK: - Internal Properties
   
-  var loadedImages: [Int: UIImage] = [:]
+  var loadedImages: [URL: UIImage] = [:]
   var indexActiveSlide = 0
 
   var activeCell: UISliderCollectionViewCell? {
@@ -112,6 +112,11 @@ open class UISliderView: UIView {
     pageControl.currentPageIndicatorTintColor = pageCurrentIndicatorColor
     
     collectionView.reloadData()
+    
+    guard !images.isEmpty else {
+      return
+    }
+    
     collectionView.performBatchUpdates(nil) { [weak self] _ in
       self?.collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
       
@@ -186,15 +191,15 @@ open class UISliderView: UIView {
     let index = indexActiveSlide
     
     let imageURL = images[index]
-    let isLoaded = loadedImages.contains(where: { $0.key == index })
-    
+    let isLoaded = loadedImages.contains(where: { $0.key == imageURL })
+
     guard !isLoaded else {
       return
     }
         
     fetchImage(url: imageURL) { [weak self] (image) in
       self?.activeCell?.updateImage(image: image)
-      self?.loadedImages[index] = image
+      self?.loadedImages[imageURL] = image
     }
   }
   
@@ -254,7 +259,8 @@ extension UISliderView: UICollectionViewDataSource {
     _ collectionView: UICollectionView,
     cellForItemAt indexPath: IndexPath
   ) -> UICollectionViewCell {
-    let loadedImage = loadedImages[indexPath.row]
+    let loadedImageURL = images[indexPath.row]
+    let loadedImage = loadedImages[loadedImageURL]
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCollectionViewCell", for: indexPath)
     
     if let cell = cell as? UISliderCollectionViewCell {
