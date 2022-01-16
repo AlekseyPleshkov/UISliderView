@@ -67,6 +67,7 @@ open class UISliderView: UIView {
   
   var loadedImages: [URL: UIImage] = [:]
   var indexActiveSlide = 0
+  var isNeedResetIndexAfterReload = true
 
   var activeCell: UISliderCollectionViewCell? {
     let indexPath = IndexPath(item: indexActiveSlide, section: 0)
@@ -102,7 +103,11 @@ open class UISliderView: UIView {
   /// sliderView.reloadData()
   /// ```
   open func reloadData() {
-    let indexPath = IndexPath(item: self.indexActiveSlide, section: 0)
+    if isNeedResetIndexAfterReload {
+      indexActiveSlide = 0
+    }
+    
+    let indexPath = IndexPath(item: indexActiveSlide, section: 0)
     let isShowPageControl = self.isShowPageControl ? images.count > 1 : false
     
     pageControl.isHidden = !isShowPageControl

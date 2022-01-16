@@ -67,6 +67,7 @@ final class UIFullScreenSliderView: UIView {
     sliderView.images = images
     sliderView.loadedImages = loadedImages
     sliderView.indexActiveSlide = indexActiveSlide
+    sliderView.isNeedResetIndexAfterReload = false
     sliderView.reloadData()
     
     pageControl.numberOfPages = images.count

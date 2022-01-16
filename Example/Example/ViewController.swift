@@ -28,7 +28,7 @@ final class ViewController: UIViewController {
 //    sliderView.fullScreenImageContentMode = .scaleAspectFit
     sliderView.reloadData()
     
-    DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
+    DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [weak self] in
       self?.sliderView.images = [
         URL(string: "https://images.unsplash.com/photo-1578664934514-789f4fb29160?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80")!,
         URL(string: "https://images.unsplash.com/photo-1444076784383-69ff7bae1b0a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80")!
