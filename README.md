@@ -22,7 +22,7 @@ platform :ios, '11.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-pod 'UISliderView', '~> 1.0.5'
+pod 'UISliderView', '~> 1.0.6'
 end
 ```
 
@@ -43,7 +43,7 @@ let package = Package(
   name: "PROJECT_NAME",
   targets: [],
   dependencies: [
-      .package(url: "https://github.com/AlekseyPleshkov/UISliderView.git", from: "1.0.5")
+      .package(url: "https://github.com/AlekseyPleshkov/UISliderView.git", from: "1.0.6")
   ]
 )
 ```
