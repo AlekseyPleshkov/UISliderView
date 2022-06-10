@@ -209,7 +209,7 @@ open class UISliderView: UIView {
   }
   
   private func fetchImage(url: URL, _ completion: @escaping (UIImage) -> Void) {
-    DispatchQueue.global(qos: .utility).async {
+    DispatchQueue.global(qos: .userInteractive).async {
       guard
         let loadedData = try? Data(contentsOf: url),
         let loadedImage = UIImage(data: loadedData)
