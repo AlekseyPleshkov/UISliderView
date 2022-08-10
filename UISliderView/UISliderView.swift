@@ -74,6 +74,11 @@ open class UISliderView: UIView {
     return collectionView.cellForItem(at: indexPath) as? UISliderCollectionViewCell
   }
   
+  var nextCell: UISliderCollectionViewCell? {
+    let indexPath = IndexPath(item: indexActiveSlide + 1, section: 0)
+    return collectionView.cellForItem(at: indexPath) as? UISliderCollectionViewCell
+  }
+  
   var collectionViewLayout: UICollectionViewFlowLayout!
   var collectionView: UICollectionView!
   var pageControl: UIPageControl!
@@ -194,17 +199,43 @@ open class UISliderView: UIView {
     }
     
     let index = indexActiveSlide
+    let nextIndex = indexActiveSlide + 1
     
     let imageURL = images[index]
+    let nextImageURL: URL? = {
+      guard nextIndex < images.count else {
+        return nil
+      }
+      return images[nextIndex]
+    }()
+    
     let isLoaded = loadedImages.contains(where: { $0.key == imageURL })
+    let isNextLoaded = loadedImages.contains(where: { $0.key == nextImageURL })
 
-    guard !isLoaded else {
-      return
+    if !isLoaded {
+      print("Load image")
+      fetchImage(url: imageURL) { [weak self] (image) in
+        print("End load image")
+        self?.activeCell?.updateImage(image: image)
+        self?.loadedImages[imageURL] = image
+      }
+    } else {
+      print("Image from cache")
+      activeCell?.updateImage(image: loadedImages[imageURL])
     }
-        
-    fetchImage(url: imageURL) { [weak self] (image) in
-      self?.activeCell?.updateImage(image: image)
-      self?.loadedImages[imageURL] = image
+    
+    if !isNextLoaded, let nextImageURL = nextImageURL {
+      print("Load next image")
+      fetchImage(url: nextImageURL) { [weak self] (image) in
+        print("End load next image")
+        self?.nextCell?.updateImage(image: image)
+        self?.loadedImages[nextImageURL] = image
+      }
+    } else {
+      print("Image from cache")
+      if let nextImageURL = nextImageURL {
+        nextCell?.updateImage(image: loadedImages[nextImageURL])
+      }
     }
   }
   
@@ -266,13 +297,17 @@ extension UISliderView: UICollectionViewDataSource {
   ) -> UICollectionViewCell {
     let loadedImageURL = images[indexPath.row]
     let loadedImage = loadedImages[loadedImageURL]
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCollectionViewCell", for: indexPath)
+    let cell = collectionView.dequeueReusableCell(
+      withReuseIdentifier: "SliderCollectionViewCell",
+      for: indexPath
+    )
     
     if let cell = cell as? UISliderCollectionViewCell {
       cell.configure(
         contentMode: imageContentMode,
         activityIndicatorColor: activityIndicatorColor,
-        activityIndicatorStyle: activityIndicatorStyle)
+        activityIndicatorStyle: activityIndicatorStyle
+      )
       cell.updateImage(image: loadedImage)
     }
     

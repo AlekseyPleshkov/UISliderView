@@ -162,7 +162,8 @@ final class UIFullScreenSliderView: UIView {
       usingSpringWithDamping: 0.7,
       initialSpringVelocity: 1,
       options: [],
-      animations: animations)
+      animations: animations
+    )
   }
   
   private func animateTransformCell(
